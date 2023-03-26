@@ -1,3 +1,5 @@
+import { Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -8,9 +10,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 
 export class SearchFormComponent {
+  @Output() onChanged = new EventEmitter<string>();
+
   searchString: string = '';
 
-  onSearch(): void {
-    console.log(this.searchString);
+  onSearch(): void {    
+    this.onChanged.emit(this.searchString);
   }
 }

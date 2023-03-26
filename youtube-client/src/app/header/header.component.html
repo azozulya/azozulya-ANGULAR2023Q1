@@ -4,7 +4,7 @@
     <mat-icon>play_arrow</mat-icon>
   </a>
   
-  <app-search-form></app-search-form>
+  <app-search-form (onChanged)="onChanged($event)"></app-search-form>
 
   <button mat-raised-button color="accent">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

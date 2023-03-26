@@ -3,8 +3,12 @@ interface ISnippet {
   "channelId": string;
   "title": string;
   "description": string;
-  "thumbnails": {
-    (thumb?: ThumbType): IThumbnail;
+  "thumbnails"?: {
+    default: IThumbnail;
+    medium: IThumbnail;
+    high: IThumbnail;
+    standard: IThumbnail;
+    maxres: IThumbnail;
   };
   "channelTitle": string;
   "tags": string[];
@@ -42,5 +46,7 @@ export interface IMovie {
     "dislikeCount": string;
     "favoriteCount": string;
     "commentCount": string;
-  }
+  },
+  source?: string;
+  operator?: string;
 };

@@ -1,7 +1,7 @@
-<app-header></app-header>
+<app-header (onDataChanged)="onDataChanged($event)"></app-header>
 
 <main class="container">
-  <app-search-results></app-search-results>
+  <app-search-results [list]="list"></app-search-results>
 </main>
 
 <router-outlet></router-outlet>

@@ -1,13 +1,16 @@
+import { Input } from '@angular/core';
 import { Component } from '@angular/core';
-import mockDataList from "../../../data/data.json";
+import { IMovie } from 'src/models/search.interface';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.scss']
+  styleUrls: ['./search-results.component.scss'],
 })
 
 export class SearchResultsComponent {  
-  list = mockDataList.items;
+  constructor(){}
+
+  @Input() list!: IMovie[];   
 }
 

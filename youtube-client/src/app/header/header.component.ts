@@ -10,7 +10,13 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   @Output() onDataChanged = new EventEmitter<string>();
 
+  isShow = false;
+
   onChanged(searchStr: string){
     this.onDataChanged.emit(searchStr);
+  }
+
+  toggleSortPanel(){
+    this.isShow = !this.isShow;
   }
 }

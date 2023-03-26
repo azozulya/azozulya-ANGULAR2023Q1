@@ -12,13 +12,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { FormsModule } from '@angular/forms';
+import { SortComponent } from './header/sort/sort.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchFormComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    SortComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatButtonToggleModule,
     FormsModule,
   ],
   providers: [],

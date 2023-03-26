@@ -224,3 +224,9 @@ $theme: mat.define-light-theme((
     font-family: 'Roboto';
   }
 }
+
+.sort .mat-button-toggle-group-appearance-standard {
+  border: none;
+  display: flex;
+  gap: 1rem;
+}

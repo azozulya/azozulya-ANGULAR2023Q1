@@ -1,0 +1,20 @@
+.filter {
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+
+  .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+    padding: 0;
+    min-height: auto;
+  }
+
+  .mdc-line-ripple { display:none;}
+  .mdc-text-field { 
+    border-radius: 0;
+    padding: 0 0.2rem;
+    margin-left: 0.3rem;
+  }
+  .mat-mdc-form-field-infix {
+    width: 4rem;
+  }
+}

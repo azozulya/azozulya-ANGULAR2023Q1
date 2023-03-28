@@ -1,7 +1,11 @@
 <app-header (onDataChanged)="onDataChanged($event)"></app-header>
 
 <main class="container">
-  <app-search-results [list]="list"></app-search-results>
+  <div *ngIf="isShowNotFindMessage" class="notfound">
+    Nothing found, try something else
+  </div>
+  
+  <app-search-results [list]="list | sort: currentSort"></app-search-results>
 </main>
 
 <router-outlet></router-outlet>

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Sort } from '@angular/material/sort';
 import { IMovie } from 'src/models/search.interface';
+import { IState } from 'src/models/state.interface';
+
 import mockDataList from "../data/data.json";
 
 @Component({
@@ -10,11 +13,23 @@ import mockDataList from "../data/data.json";
 
 export class AppComponent { 
   title = 'youtube-client';
-  
+  currentSort!: Sort;
   list!: IMovie[];
+  isShowNotFindMessage = false;
 
-  onDataChanged(searchStr: string){
-    this.list = mockDataList.items.filter((movie: IMovie) => movie.snippet.title.toLowerCase().includes(searchStr));
-    console.log(this.list);
+  onDataChanged(state: IState){       
+    if(!state.search) return;
+
+    const searchResult = mockDataList.items.filter((movie: IMovie) => movie.snippet.title.toLowerCase().includes(state.search.toLowerCase()));
+
+    if(!searchResult.length){
+      this.isShowNotFindMessage = true;
+      this.list = [];
+      return;
+    } 
+
+    this.isShowNotFindMessage = false;
+    this.list = searchResult;
+    this.currentSort = state.sort;     
   }
 }

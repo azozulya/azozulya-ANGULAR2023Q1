@@ -14,6 +14,9 @@ import { SearchResultsComponent } from './search/search-results/search-results.c
 import { FormsModule } from '@angular/forms';
 import { SortComponent } from './header/sort/sort.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { ColoredDirective } from '../directives/colored.directive';
+import {MatSortModule} from '@angular/material/sort';
+import { SortPipe } from '../pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     HeaderComponent,
     SearchFormComponent,
     SearchResultsComponent,
-    SortComponent
+    SortComponent,
+    ColoredDirective,
+    SortPipe
   ],
   imports: [
     BrowserModule,
@@ -32,6 +37,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatButtonModule,
     MatIconModule,
     MatButtonToggleModule,
+    MatSortModule,
     FormsModule,
   ],
   providers: [],

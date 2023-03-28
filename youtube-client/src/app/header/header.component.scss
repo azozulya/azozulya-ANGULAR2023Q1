@@ -8,6 +8,11 @@
   &-container {
     @include container;
   }
+
+  &-wrapper {
+    position: relative;
+  }
+
   &-main {
     display: flex;
     justify-content: center;
@@ -58,4 +63,14 @@
 
 .hide {
   display: none;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .5rem;
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
 }

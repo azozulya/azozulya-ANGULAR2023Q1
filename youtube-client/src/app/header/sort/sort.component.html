@@ -1,12 +1,8 @@
-<div class="sort" [class.show]="isShow">
+<div class="sort">
   <span class="sort-title">Sorting by:</span>
   <div matSort (matSortChange)="sortData($event)" class="sort-params" [matSortActive]="defaultSort.active"
     [matSortDirection]="defaultSort.direction">
     <div mat-sort-header="{{sortParams.DATE}}">date</div>
     <div mat-sort-header="{{sortParams.VIEWS}}">count of views</div>
-  </div>
-  <div>
-    by word or sentance
-  
   </div>
 </div>

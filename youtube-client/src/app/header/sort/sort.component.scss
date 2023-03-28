@@ -1,9 +1,8 @@
 .sort {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
-  padding: 2rem 0 0;
+  gap: 0.5rem;
 
   &-title {
     color: #929292;
@@ -11,10 +10,10 @@
 
   &-params {
     display: flex;
-    gap: 1rem;
+    gap: .7rem;
   }
-}
 
-.show {
-  display: flex;
+  .mat-sort-header-arrow {
+    margin-left: .08rem;
+  }
 }

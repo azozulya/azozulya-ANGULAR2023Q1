@@ -14,10 +14,11 @@ import mockDataList from "../data/data.json";
 export class AppComponent { 
   title = 'youtube-client';
   currentSort!: Sort;
+  filterTag!: string;
   list!: IMovie[];
   isShowNotFindMessage = false;
 
-  onDataChanged(state: IState){       
+  onDataChanged(state: IState){  
     if(!state.search) return;
 
     const searchResult = mockDataList.items.filter((movie: IMovie) => movie.snippet.title.toLowerCase().includes(state.search.toLowerCase()));
@@ -29,7 +30,8 @@ export class AppComponent {
     } 
 
     this.isShowNotFindMessage = false;
+    this.currentSort = state.sort;    
+    this.filterTag = state.filter; 
     this.list = searchResult;
-    this.currentSort = state.sort;     
   }
 }

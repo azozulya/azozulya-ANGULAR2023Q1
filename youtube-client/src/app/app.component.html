@@ -5,7 +5,7 @@
     Nothing found, try something else
   </div>
   
-  <app-search-results [list]="list | sort: currentSort"></app-search-results>
+  <app-search-results [list]="list | sort: currentSort | filter: filterTag"></app-search-results>
 </main>
 
 <router-outlet></router-outlet>

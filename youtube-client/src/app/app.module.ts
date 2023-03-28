@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSortModule } from '@angular/material/sort';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SearchFormComponent } from './search/search-form/search-form.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import { SearchResultsComponent } from './search/search-results/search-results.component';
-import { FormsModule } from '@angular/forms';
 import { SortComponent } from './header/sort/sort.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { TagFilterComponent } from './header/filter/tag-filter.component';
+import { SearchFormComponent } from './search/search-form/search-form.component';
+import { SearchResultsComponent } from './search/search-results/search-results.component';
 import { ColoredDirective } from '../directives/colored.directive';
-import {MatSortModule} from '@angular/material/sort';
 import { SortPipe } from '../pipes/sort.pipe';
+import { FilterPipe } from '../pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { SortPipe } from '../pipes/sort.pipe';
     SearchResultsComponent,
     SortComponent,
     ColoredDirective,
-    SortPipe
+    SortPipe,
+    TagFilterComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

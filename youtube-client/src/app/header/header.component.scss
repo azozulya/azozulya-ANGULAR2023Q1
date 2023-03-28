@@ -3,29 +3,29 @@
 
 .header {
   padding: 1rem 2rem;
-    background-color: #E5E5E5;
-  
-    &-container {
-      @include container;
-    }
-        &-main {
+  background-color: #e5e5e5;
+
+  &-container {
+    @include container;
+  }
+  &-main {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: .7rem;
+    gap: 0.7rem;
 
     .mdc-button--raised {
-        height: auto;
-          min-width: 1.5rem;
-          padding: 0;
-          margin: 0;
-          line-height: normal;
-          min-height: 1.5rem;
-          border-radius: 5px;
+      height: auto;
+      min-width: 1.5rem;
+      padding: 0;
+      margin: 0;
+      line-height: normal;
+      min-height: 1.5rem;
+      border-radius: 5px;
 
       svg {
-          display: block;
-          }
+        display: block;
+      }
     }
   }
 }
@@ -46,4 +46,16 @@
     color: #ffffff;
     fill: #ffffff;
   }
+}
+
+.sorting-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0 0;
+}
+
+.hide {
+  display: none;
 }

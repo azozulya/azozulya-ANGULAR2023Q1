@@ -1,11 +1,12 @@
 .movies {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-    padding: 2rem 0;
+  justify-content: flex-start;
+  align-content: center;
+  gap: 1.74rem;
+  margin: 0 2rem;
+  padding: 2rem 0;
+
 
   .movie {
     box-sizing: border-box;

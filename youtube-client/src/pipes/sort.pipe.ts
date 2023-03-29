@@ -24,10 +24,7 @@ export class SortPipe implements PipeTransform {
       case sortParam.VIEWS: {
         sortedResult = list.sort((a, b) => parseInt(a.statistics.viewCount) - parseInt(b.statistics.viewCount));
         break;
-      }
-      case sortParam.WORD: {
-        break;
-      }
+      }      
     }
 
     return sort.direction === 'asc' ? sortedResult : sortedResult.reverse();       

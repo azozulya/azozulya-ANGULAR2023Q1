@@ -1,6 +1,6 @@
 <div class="movies" *ngIf="list">
   <div *ngFor="let item of list" class="movie" appColored date="{{item.snippet.publishedAt}}">
-    <img src={{item.snippet.thumbnails?.medium?.url}} width={{item.snippet.thumbnails?.medium?.width}}
+    <img src={{item.snippet.thumbnails.medium.url}} width={{item.snippet.thumbnails.medium.width}}
       class="movie-image" />
     <ul class="movie-statistic">
       <li>

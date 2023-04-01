@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
-import { Sort } from '@angular/material/sort';
-import { IMovie } from 'src/models/search.interface';
-import { IState } from 'src/models/state.interface';
-
-import mockDataList from "../data/data.json";
+import { Component, Output } from '@angular/core';
+import { DataService } from './core/services/data.service';
+import { IMovie } from './youtube/models/movie.interface';
+import { IState } from './youtube/models/state.interface';
 
 @Component({
   selector: 'app-root',
@@ -11,27 +9,14 @@ import mockDataList from "../data/data.json";
   styleUrls: ['./app.component.scss'],
 })
 
-export class AppComponent { 
-  title = 'youtube-client';
-  currentSort!: Sort;
-  filterTag!: string;
-  list!: IMovie[];
-  isShowNotFindMessage = false;
+export class AppComponent {
+  //@Output() list!: IMovie[];
 
-  onDataChanged(state: IState){  
-    if(!state.search) return;
+  constructor(private dataService: DataService) { }
 
-    const searchResult = mockDataList.items.filter((movie: IMovie) => movie.snippet.title.toLowerCase().includes(state.search.toLowerCase()));
+  onDataChanged(state: IState) {
+    //if (!state.search) return;
 
-    if(!searchResult.length){
-      this.isShowNotFindMessage = true;
-      this.list = [];
-      return;
-    } 
-
-    this.isShowNotFindMessage = false;
-    this.currentSort = state.sort;    
-    this.filterTag = state.filter; 
-    this.list = searchResult;
+    //this.list = this.dataService.searchMovies(state.search);
   }
 }

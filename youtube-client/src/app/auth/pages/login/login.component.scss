@@ -1,0 +1,12 @@
+.login-form {
+  margin: 2rem auto;
+  background-color: #F2F2F2;
+  width: fit-content;
+  padding: 1rem 2rem 2rem;
+  box-sizing: border-box;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}

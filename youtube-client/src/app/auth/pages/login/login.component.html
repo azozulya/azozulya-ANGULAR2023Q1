@@ -11,6 +11,6 @@
       <input matInput [formControl]="password" required />
       <mat-error *ngIf="password.invalid">{{ getErrorMessage() }}</mat-error>
     </mat-form-field>
-    <button mat-raised-button color="accent">Submit</button>
+    <button mat-raised-button color="accent" (click)="onLogin()">Submit</button>
   </form>
 </div>

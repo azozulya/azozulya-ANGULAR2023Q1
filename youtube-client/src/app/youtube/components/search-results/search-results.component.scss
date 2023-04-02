@@ -1,10 +1,11 @@
 .movies {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-content: center;
   gap: 1.74rem;
-  margin: 0 2rem;
+  width: fit-content;
+  margin: 0 auto;
   padding: 2rem 0;
 
   .movie {

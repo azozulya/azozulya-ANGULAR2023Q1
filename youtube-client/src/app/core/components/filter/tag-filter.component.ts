@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-tag-filter',
@@ -6,12 +7,13 @@ import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/cor
   styleUrls: ['./tag-filter.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class TagFilterComponent {
   filterTag!: string;
 
-  @Output() onChanged = new EventEmitter<string>();
+  constructor(private dataService: DataService) { }
 
   onChange(): void {
-    this.onChanged.emit(this.filterTag);
+    this.dataService.state.filter = this.filterTag;
   }
 }

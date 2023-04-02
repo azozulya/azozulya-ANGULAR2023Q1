@@ -1,7 +1,4 @@
-import { OnInit, Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -14,13 +11,9 @@ import { DataService } from '../../services/data.service';
 export class SearchFormComponent {
   searchString: string = '';
 
-  constructor(private dataService: DataService, private router: Router) { }
-
-  @Output() onChanged = new EventEmitter<string>();
+  constructor(private dataService: DataService) { }
 
   onSearch(): void {
-    //this.onChanged.emit(this.searchString);
-    //this.dataService.searchMovies(this.searchString);
-    this.router.navigateByUrl(`/main/${this.searchString}`);
+    this.dataService.searchMovies(this.searchString);
   }
 }

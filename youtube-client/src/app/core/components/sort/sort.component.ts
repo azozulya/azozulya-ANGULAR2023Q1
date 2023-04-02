@@ -1,8 +1,8 @@
-import { Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { ESort } from 'src/app/core/models/sort.interface';
 import { Sort } from '@angular/material/sort';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-sort',
@@ -11,17 +11,21 @@ import { Sort } from '@angular/material/sort';
   encapsulation: ViewEncapsulation.None
 })
 
-export class SortComponent {
-  @Input() defaultSort!: Sort;
-  @Output() onChanged = new EventEmitter<Sort>();
-
+export class SortComponent implements OnInit {
   sortParams = ESort;
+  defaultSort!: Sort;
+
+  constructor(private dataService: DataService) { }
+
+  ngOnInit(): void {
+    this.defaultSort = this.dataService.state.sort;
+  }
 
   sortData(sort: Sort) {
     if (sort.direction === '') {
       sort.direction = 'asc';
     }
 
-    this.onChanged.emit(sort);
+    this.dataService.state.sort = sort;
   }
 }

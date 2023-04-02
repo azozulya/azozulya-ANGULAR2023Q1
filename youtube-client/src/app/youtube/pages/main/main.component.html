@@ -1,5 +1,6 @@
 <main>
   <div class="container">
+    <p *ngIf="!list.length" class="default-message">Let's find something</p>
     <app-search-results [list]="list | sort: currentSort | filter: filterTag"></app-search-results>
   </div>
 </main>

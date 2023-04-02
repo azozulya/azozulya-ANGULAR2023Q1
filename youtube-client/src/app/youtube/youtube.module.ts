@@ -6,11 +6,13 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { RouterModule } from '@angular/router';
+import { DetailsComponent } from './pages/details/details.component';
 
 @NgModule({
   declarations: [
     SearchResultsComponent,
     MainComponent,
+    DetailsComponent,
     SortPipe,
     FilterPipe
   ],

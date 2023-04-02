@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainComponent, pathMatch: 'full', canActivate: [LoginGuard] },
   { path: 'main/:search', component: MainComponent, canActivate: [LoginGuard] },
-  { path: 'details', component: DetailsComponent, canActivate: [LoginGuard] },
+  { path: 'details/:id', component: DetailsComponent, canActivate: [LoginGuard] },
   { path: '404', component: NotFoundComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }

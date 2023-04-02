@@ -11,7 +11,9 @@ import mockDataList from "../../../data/data.json";
 export class DataService {
   constructor() { }
 
-  list!: IMovie[];
+  private list: IMovie[] = mockDataList.items;
+
+  searchResultList!: IMovie[];
 
   private state: IState = {
     search: '',
@@ -22,21 +24,25 @@ export class DataService {
     filter: '',
   };
 
+  getMovieDetails(id: string): IMovie | undefined {
+    return this.list?.find(item => item.id === id);
+  }
+
   getMovieList(): IMovie[] {
-    return this.list;
+    return this.searchResultList;
   }
 
   searchMovies(searchStr: string): IMovie[] {
     if (!searchStr)
       return [];
 
-    const searchResult = mockDataList.items.filter((movie: IMovie) => movie.snippet.title.toLowerCase().includes(searchStr.toLowerCase()));
+    const searchResult = this.list.filter((movie: IMovie) => movie.snippet.title.toLowerCase().includes(searchStr.toLowerCase()));
 
-    this.list = !searchResult.length ? [] : searchResult;
+    this.searchResultList = !searchResult.length ? [] : searchResult;
 
     this.state.search = searchStr;
 
-    return this.list;
+    return this.searchResultList;
   }
 
 

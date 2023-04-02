@@ -1,7 +1,7 @@
 .movies {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   gap: 1.74rem;
   width: fit-content;

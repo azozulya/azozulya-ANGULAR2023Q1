@@ -7,7 +7,7 @@
           <i class="fa-brands fa-youtube logo-icon"></i>
         </a>
 
-        <app-search-form (onChanged)="onChanged($event)"></app-search-form>
+        <app-search-form></app-search-form>
 
         <button mat-raised-button color="accent" (click)="isHidden = !isHidden">
           <i class="fa-solid fa-sliders" style="color: #ffffff;"></i>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="sorting-panel" [class.hide]="isHidden">
-      <app-sort (onChanged)="onSortChanged($event)" [defaultSort]="state.sort"></app-sort>
+      <app-sort></app-sort>
       <app-tag-filter (onChanged)="onFilterList($event)"></app-tag-filter>
     </div>
   </div>

@@ -7,6 +7,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { RouterModule } from '@angular/router';
 import { DetailsComponent } from './pages/details/details.component';
+import { ColoredDirective } from './directives/colored.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { DetailsComponent } from './pages/details/details.component';
     MainComponent,
     DetailsComponent,
     SortPipe,
-    FilterPipe
+    FilterPipe,
+    ColoredDirective
   ],
   imports: [
     CommonModule,

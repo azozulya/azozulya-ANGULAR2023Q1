@@ -1,8 +1,7 @@
-import { EventEmitter } from '@angular/core';
-import { Output } from '@angular/core';
 import { Component } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { IState } from 'src/app/youtube/models/state.interface';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-header',
@@ -11,32 +10,15 @@ import { IState } from 'src/app/youtube/models/state.interface';
 })
 
 export class HeaderComponent {
-  @Output() onDataChanged = new EventEmitter<IState>();
-
   isHidden = true;
+  state!: IState;
 
-  state: IState = {
-    search: '',
-    sort: {
-      active: 'date',
-      direction: 'asc'
-    },
-    filter: '',
-  };
-
-  onChanged(searchStr: string) {
-    this.state.search = searchStr;
-    console.log('headre: ', this.state);
-    this.onDataChanged.emit(this.state);
-  }
-
-  onSortChanged(sortParam: Sort) {
-    this.state.sort = sortParam;
-    this.onDataChanged.emit(this.state);
-  }
+  constructor(private dataService: DataService) {
+    this.state = this.dataService.state;
+  } 
 
   onFilterList(filterTag: string) {
     this.state.filter = filterTag;
-    this.onDataChanged.emit(this.state);
+    //this.onDataChanged.emit(this.state);
   }
 }

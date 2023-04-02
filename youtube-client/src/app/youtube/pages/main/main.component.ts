@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Sort } from '@angular/material/sort';
-import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/core/services/data.service';
-import { IMovie } from 'src/app/youtube/models/movie.interface';
+import { IState } from '../../models/state.interface';
 
 @Component({
   selector: 'app-main',
@@ -10,26 +8,8 @@ import { IMovie } from 'src/app/youtube/models/movie.interface';
   styleUrls: ['./main.component.scss'],
 })
 
-export class MainComponent implements OnInit {
-  list!: IMovie[];
+export class MainComponent {
+  protected get state(): IState { return this.dataService.state }
 
-  currentSort!: Sort;
-  filterTag!: string;
-
-  searchStr!: string | null;
-
-  constructor(private dataService: DataService, private route: ActivatedRoute) {
-    this.route.params.subscribe(params => {
-      this.searchStr = params['search'];
-      this.list = !this.searchStr ? [] : this.dataService.searchMovies(this.searchStr);
-    });
-  }
-
-  ngOnInit(): void {
-    this.searchStr = this.route.snapshot.paramMap.get('search');
-
-    if (!this.searchStr) return;
-
-    this.list = this.dataService.searchMovies(this.searchStr);
-  }
+  constructor(private dataService: DataService) { }
 }

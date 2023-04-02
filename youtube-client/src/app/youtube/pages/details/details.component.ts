@@ -12,19 +12,19 @@ export class DetailsComponent implements OnInit {
   private id!: string | null;
   item!: IMovie
 
-  constructor(private router: ActivatedRoute, private dataService: DataService) { }
+  constructor(private activeRouter: ActivatedRoute, private router: Router, private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.router.paramMap.subscribe(params => this.id = params.get('id'));
+    this.activeRouter.paramMap.subscribe(params => this.id = params.get('id'));
 
     if (this.id) {
       const details = this.dataService.getMovieDetails(this.id);
-      console.log(this.id, details);
-      if (details)
-        this.item = details;
+
+      if (!details) {
+        this.router.navigateByUrl('404');
+        return;
+      }
+      this.item = details;
     }
-
   }
-
-
 }

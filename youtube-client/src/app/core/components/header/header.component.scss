@@ -45,7 +45,7 @@
 
   &:hover {
     text-decoration: none;
-  }  
+  }
 
   &-icon {
     color: youtube-theme.$accent-color;
@@ -93,4 +93,12 @@
   position: absolute;
   right: 0;
   top: 0.5rem;
+}
+
+.logout {
+  font-size: 0.7rem;
+  line-height: normal;
+  padding: 0.35rem;
+  height: auto;
+  margin: 0 0 0 1rem;
 }

@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { AuthService } from './auth/services/auth.service';
 import { CoreModule } from './core/core.module';
 import { DataService } from './core/services/data.service';
 import { YoutubeModule } from './youtube/youtube.module';
@@ -20,7 +21,7 @@ import { YoutubeModule } from './youtube/youtube.module';
     YoutubeModule,
     AuthModule
   ],
-  providers: [DataService],
+  providers: [DataService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

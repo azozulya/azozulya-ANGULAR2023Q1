@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Sort } from '@angular/material/sort';
-import { IState } from 'src/app/youtube/models/state.interface';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataService } from '../../services/data.service';
+import { IState } from 'src/app/youtube/models/state.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,13 +13,19 @@ import { DataService } from '../../services/data.service';
 export class HeaderComponent {
   isHidden = true;
   state!: IState;
+  auth: { isLogged: boolean; userName: string };
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private authService: AuthService, private router: Router) {
     this.state = this.dataService.state;
+    this.auth = this.authService.auth;
   } 
 
   onFilterList(filterTag: string) {
     this.state.filter = filterTag;
-    //this.onDataChanged.emit(this.state);
+  }
+
+  onLogout() {
+    this.authService.logOut();
+    this.router.navigateByUrl('login');
   }
 }

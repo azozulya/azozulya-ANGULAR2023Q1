@@ -40,6 +40,5 @@ export class DataService {
       search: searchStr,
       list: !searchResult.length ? [] : searchResult
     }
-    console.log(this.state);
   }
 }

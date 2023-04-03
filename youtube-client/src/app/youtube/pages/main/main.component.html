@@ -1,4 +1,5 @@
 <div class="container">
-  <p *ngIf="!state.list.length" class="default-message">Let's find something</p>
+  <p *ngIf="!state.list.length && !state.search" class="message">Let's find something</p>
+  <p *ngIf="!state.list.length && state.search" class="message">Nothing found. Try again</p>
   <app-search-results [list]="state.list | sort: state.sort | filter: state.filter"></app-search-results>
 </div>

@@ -4,13 +4,14 @@
       ><i class="fa-solid fa-chevron-left" style="color: #ffffff"></i
     ></a>
     <img src="{{ item.snippet.thumbnails.standard.url }}" class="movie-img" />
-    <div class="movie-details">
+    <div class="movie-details" appColored date="{{item.snippet.publishedAt}}">
       <div class="movie-details_header">
         <h2 class="movie-title">{{ item.snippet.title }}</h2>
         <p class="movie-date">{{ item.snippet.publishedAt | date }}</p>
       </div>
       <p class="movie-description_title">Description:</p>
       <p class="movie-description">{{ item.snippet.description }}</p>
-    </div>
+      <app-movie-statistic [movie]="item"></app-movie-statistic>
+    </div>    
   </section>
 </div>

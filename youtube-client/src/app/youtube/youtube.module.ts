@@ -8,6 +8,7 @@ import { SortPipe } from './pipes/sort.pipe';
 import { RouterModule } from '@angular/router';
 import { DetailsComponent } from './pages/details/details.component';
 import { ColoredDirective } from './directives/colored.directive';
+import { MovieStatisticComponent } from './components/movie-statistic/movie-statistic.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ColoredDirective } from './directives/colored.directive';
     DetailsComponent,
     SortPipe,
     FilterPipe,
-    ColoredDirective
+    ColoredDirective,
+    MovieStatisticComponent
   ],
   imports: [
     CommonModule,

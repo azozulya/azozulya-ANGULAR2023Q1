@@ -1,4 +1,4 @@
-import { Input } from '@angular/core';
+import { Input, Output } from '@angular/core';
 import { Component } from '@angular/core';
 import { DataService } from 'src/app/core/services/data.service';
 import { IMovie } from 'src/app/youtube/models/movie.interface';
@@ -14,6 +14,6 @@ export class SearchResultsComponent {
   constructor(private dataService: DataService) { }
 
   @Input() list!: IMovie[];
-
+  @Output() movie!: IMovie;
 }
 

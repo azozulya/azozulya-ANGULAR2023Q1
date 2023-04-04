@@ -2,3 +2,18 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+
+@mixin movie-color($color) {
+  .mat-mdc-raised-button:not(:disabled) {
+    background-color: opacify($color, 0.75);
+  }
+  .movie-shadow {
+    filter: drop-shadow(5px 10px 10px $color);
+  }
+  .movie-details {
+    border-color: opacify($color, 0.75);
+  }
+  .movie-back_link {
+    filter: drop-shadow(-2px 2px 4px $color);
+  }
+}

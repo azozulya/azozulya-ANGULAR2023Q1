@@ -5,9 +5,13 @@ import { Directive, HostBinding, OnInit, Input } from '@angular/core';
 })
 
 export class ColoredDirective implements OnInit {
+  private colorClass!: string;
   @Input() date!: string;  
 
   @HostBinding('style.border-color') borderColor!:string;
+  @HostBinding('class') get hostClasses() {
+    return this.colorClass;
+  }
 
   private checkDate(date: Date, month: number, type: 'month' | 'day' = 'month'){
     const d = new Date(Date.now());
@@ -30,5 +34,7 @@ export class ColoredDirective implements OnInit {
     } else {
       this.borderColor = this.checkDate(currentDate, 6) ? this.colors.older : this.colors.old; 
     }    
+    this.colorClass = this.borderColor;
+    console.log(this.colorClass);
   } 
 }

@@ -1,5 +1,10 @@
 <div class="container">
-  <section *ngIf="item" class="movie green">
+  <section
+    *ngIf="item"
+    class="movie"
+    appColored
+    date="{{ item.snippet.publishedAt }}"
+  >
     <div class="movie-back">
       <button
         mat-raised-button
@@ -18,11 +23,7 @@
           class="movie-img_img"
         />
       </div>
-      <div
-        class="movie-details"
-        appColored
-        date="{{ item.snippet.publishedAt }}"
-      >
+      <div class="movie-details">
         <div class="movie-details_header">
           <h2 class="movie-title">{{ item.snippet.title }}</h2>
           <p class="movie-date">{{ item.snippet.publishedAt | date }}</p>

@@ -1,4 +1,11 @@
+@use "sass:map";
 @import "../../../../styles/mixin/mixins";
+@import "../../../../styles/palette/movie-colors.scss";
+
+$yellow-color: map.get($movie-colors, "yellow");
+$green-color: map.get($movie-colors, "green");
+$red-color: map.get($movie-colors, 'red');
+$blue-color: map.get($movie-colors, 'blue');
 
 .container {
   @include container;
@@ -13,7 +20,6 @@
   margin: 2rem auto;
   max-height: 30rem;
 
-  
   &-back {
     &_link {
       padding: 0.33rem 0.6rem;
@@ -30,7 +36,6 @@
   }
 
   &-shadow {
-    box-shadow: 5px 5px 20px rgba(51, 51, 51, 0.25);
     border-radius: 5px;
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -97,8 +102,18 @@
   }
 
   &.green {
-    .mat-mdc-raised-button:not(:disabled) { background-color: green;}
-    .movie-shadow { filter: drop-shadow(5px 10px 10px rgba(39, 174, 96, 0.25));}
+    @include movie-color($green-color);
   }
-  
+
+  &.yellow {
+    @include movie-color($yellow-color);
+  }
+
+  &.red {
+    @include movie-color($red-color);
+  }
+
+  &.blue {
+    @include movie-color($blue-color);
+  }
 }

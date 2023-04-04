@@ -19,15 +19,19 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.activeRouter.paramMap.subscribe(params => this.id = params.get('id'));
 
-    if (this.id) {
-      const details = this.dataService.getMovieDetails(this.id);
-
-      if (!details) {
-        this.router.navigateByUrl('404');
-        return;
-      }
-      this.item = details;
+    if (!this.id) {
+      this.router.navigateByUrl('/404');
+      return;
     }
+
+    const details = this.dataService.getMovieDetails(this.id);
+
+    if (!details) {
+      this.router.navigateByUrl('/404');
+      return;
+    }
+    this.item = details;
+
   }
 
   goBack(): void {

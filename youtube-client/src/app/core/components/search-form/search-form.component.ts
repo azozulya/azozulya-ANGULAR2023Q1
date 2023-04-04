@@ -18,6 +18,6 @@ export class SearchFormComponent {
     this.dataService.searchMovies(this.searchString);
 
     if (this.router.url !== '/main')
-      this.router.navigateByUrl('main');    
+      this.router.navigateByUrl('/main');    
   }
 }

@@ -33,6 +33,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: '**',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
     component: NotFoundComponent
   }
 ];

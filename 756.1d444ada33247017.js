@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoutube_client=self.webpackChunkyoutube_client||[]).push([[756],{3756:(M,t,u)=>{u.r(t),u.d(t,{YoutubeModule:()=>a});var l=u(6895),n=u(1511),_=u(9541),e=u(1571);let a=(()=>{class o{}return o.\u0275fac=function(E){return new(E||o)},o.\u0275mod=e.oAB({type:o}),o.\u0275inj=e.cJS({imports:[l.ez,_.Bz,n.m]}),o})()}}]);

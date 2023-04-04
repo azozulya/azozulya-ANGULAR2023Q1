@@ -9,12 +9,17 @@
 }
 
 .back-link {
-  background-color: #2f80ed;
   position: absolute;
-  left: -1.6rem;
+  left: -2.2rem;
   padding: 0.33rem 0.6rem;
-  border-radius: 5px 0px 0px 5px;
+  min-width: auto;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   filter: drop-shadow(-2px 2px 4px rgba(39, 174, 96, 0.25));
+
+  .fa-chevron-left {
+    color: #ffffff;
+  }
 }
 
 .movie {

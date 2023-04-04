@@ -1,17 +1,36 @@
 <div class="container">
-  <section *ngIf="item" class="movie">
-    <button mat-raised-button color="accent" (click)="goBack()" class="back-link"
-      ><i class="fa-solid fa-chevron-left"></i
-    ></button>
-    <img src="{{ item.snippet.thumbnails.standard.url }}" class="movie-img" />
-    <div class="movie-details" appColored date="{{item.snippet.publishedAt}}">
-      <div class="movie-details_header">
-        <h2 class="movie-title">{{ item.snippet.title }}</h2>
-        <p class="movie-date">{{ item.snippet.publishedAt | date }}</p>
+  <section *ngIf="item" class="movie green">
+    <div class="movie-back">
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="goBack()"
+        class="movie-back_link"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+    </div>
+
+    <div class="movie-shadow">
+      <div class="movie-img">
+        <img
+          src="{{ item.snippet.thumbnails.standard.url }}"
+          class="movie-img_img"
+        />
       </div>
-      <p class="movie-description_title">Description:</p>
-      <p class="movie-description">{{ item.snippet.description }}</p>
-      <app-movie-statistic [movie]="item"></app-movie-statistic>
-    </div>    
+      <div
+        class="movie-details"
+        appColored
+        date="{{ item.snippet.publishedAt }}"
+      >
+        <div class="movie-details_header">
+          <h2 class="movie-title">{{ item.snippet.title }}</h2>
+          <p class="movie-date">{{ item.snippet.publishedAt | date }}</p>
+        </div>
+        <p class="movie-description_title">Description:</p>
+        <p class="movie-description">{{ item.snippet.description }}</p>
+        <app-movie-statistic [movie]="item"></app-movie-statistic>
+      </div>
+    </div>
   </section>
 </div>

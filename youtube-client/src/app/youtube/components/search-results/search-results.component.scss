@@ -1,3 +1,7 @@
+@use "sass:map";
+@import "../../../../styles/mixin/mixins";
+@import "../../../../styles/palette/movie-colors.scss";
+
 .movies {
   display: flex;
   flex-wrap: wrap;
@@ -20,7 +24,7 @@
     padding: 1rem;
 
     border-bottom-style: solid;
-    border-bottom-width: 3px;
+    border-bottom-width: 5px;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
 
     &-image {
@@ -45,6 +49,22 @@
       font-size: 12px;
       height: auto;
       text-decoration: none;
+    }
+
+    &.green {
+      @include movie-border-color(map.get($movie-colors, "green"));
+    }
+
+    &.yellow {
+      @include movie-border-color(map.get($movie-colors, "yellow"));
+    }
+
+    &.red {
+      @include movie-border-color(map.get($movie-colors, "red"));
+    }
+
+    &.blue {
+      @include movie-border-color(map.get($movie-colors, "blue"));
     }
   }
 }

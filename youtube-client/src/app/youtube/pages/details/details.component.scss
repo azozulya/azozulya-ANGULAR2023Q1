@@ -2,11 +2,6 @@
 @import "../../../../styles/mixin/mixins";
 @import "../../../../styles/palette/movie-colors.scss";
 
-$yellow-color: map.get($movie-colors, "yellow");
-$green-color: map.get($movie-colors, "green");
-$red-color: map.get($movie-colors, 'red');
-$blue-color: map.get($movie-colors, 'blue');
-
 .container {
   @include container;
   padding-left: 2rem;
@@ -18,16 +13,18 @@ $blue-color: map.get($movie-colors, 'blue');
 .movie {
   display: flex;
   margin: 2rem auto;
-  max-height: 30rem;
+  max-height: 30rem;  
 
   &-back {
     &_link {
-      padding: 0.33rem 0.6rem;
+      padding: 0.3rem 0.63rem;
       margin: 0;
       min-width: auto;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      filter: drop-shadow(-2px 2px 4px rgba(39, 174, 96, 0.25));
+      height: auto;
+      font-size: 1.2rem;
+      box-shadow: none;
 
       .fa-chevron-left {
         color: #ffffff;
@@ -48,7 +45,7 @@ $blue-color: map.get($movie-colors, 'blue');
     max-width: 30rem;
     background-color: #e5e5e5;
     border-radius: 0px 5px 5px 0px;
-    border-bottom-width: 3px;
+    border-bottom-width: 5px;
     border-bottom-style: solid;
 
     &_header {
@@ -102,18 +99,18 @@ $blue-color: map.get($movie-colors, 'blue');
   }
 
   &.green {
-    @include movie-color($green-color);
+    @include movie-color(map.get($movie-colors, "green"));
   }
 
   &.yellow {
-    @include movie-color($yellow-color);
+    @include movie-color(map.get($movie-colors, "yellow"));
   }
 
   &.red {
-    @include movie-color($red-color);
+    @include movie-color(map.get($movie-colors, "red"));
   }
 
   &.blue {
-    @include movie-color($blue-color);
+    @include movie-color(map.get($movie-colors, "blue"));
   }
 }

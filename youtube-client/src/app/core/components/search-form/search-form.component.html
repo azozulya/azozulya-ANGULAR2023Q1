@@ -1,7 +1,11 @@
 <form class="search-form">
-  <mat-form-field class="">
-    <input [(ngModel)]="searchString" matInput placeholder="What are you want to find out?" name="searchString"
-      autocomplete="off">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="What are you want to find out?"
+      name="searchString"
+      autocomplete="off"
+      #inputSearch
+    />
   </mat-form-field>
-  <button mat-raised-button color="accent" (click)="onSearch()">search</button>
 </form>

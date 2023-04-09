@@ -18,13 +18,8 @@ import { MovieStatisticComponent } from './components/movie-statistic/movie-stat
     SortPipe,
     FilterPipe,
     ColoredDirective,
-    MovieStatisticComponent
+    MovieStatisticComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    SharedModule
-  ]
+  imports: [CommonModule, RouterModule, SharedModule],
 })
-
-export class YoutubeModule { }
+export class YoutubeModule {}

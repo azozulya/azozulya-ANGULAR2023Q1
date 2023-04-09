@@ -1,4 +1,4 @@
-import { IThumbnail } from "./thumbnail.interface";
+import { IThumbnail } from './thumbnail.interface';
 
 export interface ISnippet {
   publishedAt: string;
@@ -19,6 +19,6 @@ export interface ISnippet {
   localized: {
     title: string;
     description: string;
-  },
+  };
   defaultAudioLanguage: string;
-};
+}

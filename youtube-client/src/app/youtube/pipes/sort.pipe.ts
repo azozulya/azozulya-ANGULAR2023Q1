@@ -4,14 +4,11 @@ import { IMovie } from 'src/app/youtube/models/movie.interface';
 import { ESort } from 'src/app/core/models/sort.interface';
 
 @Pipe({
-  name: 'sort'
+  name: 'sort',
 })
-
 export class SortPipe implements PipeTransform {
-
   transform(list: IMovie[], sort: Sort): IMovie[] {
-    if (!sort)
-      return list;
+    if (!sort) return list;
 
     const sortParam = ESort;
     let sortedResult: IMovie[] = [];

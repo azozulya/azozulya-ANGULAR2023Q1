@@ -9,37 +9,37 @@ import { MainComponent } from './youtube/pages/main/main.component';
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-    component: LoginComponent
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    component: LoginComponent,
   },
   {
     path: 'main',
-    loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule),
+    loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule),
     component: MainComponent,
     pathMatch: 'full',
-    canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
   },
   {
     path: 'details/:id',
-    loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule),
+    loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule),
     component: DetailsComponent,
-    canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
   },
   {
     path: '404',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-    component: NotFoundComponent
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    component: NotFoundComponent,
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: '**',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-    component: NotFoundComponent
-  }
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

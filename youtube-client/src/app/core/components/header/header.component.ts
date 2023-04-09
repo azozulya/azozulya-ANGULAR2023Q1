@@ -9,22 +9,23 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-
 export class HeaderComponent {
   isHidden = true;
+
   state!: IState;
+
   auth: { isLogged: boolean; userName: string };
 
   constructor(private dataService: DataService, private authService: AuthService, private router: Router) {
     this.state = this.dataService.state;
     this.auth = this.authService.auth;
-  } 
+  }
 
-  onFilterList(filterTag: string) {
+  onFilterList(filterTag: string): void {
     this.state.filter = filterTag;
   }
 
-  onLogout() {
+  onLogout(): void {
     this.authService.logOut();
     this.router.navigateByUrl('login');
   }

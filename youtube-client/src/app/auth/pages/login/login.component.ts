@@ -6,28 +6,27 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
-
 export class LoginComponent implements OnInit {
   login = new FormControl('', [Validators.required]);
+
   password = new FormControl('', [Validators.required]);
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
-    if (this.authService.isLoggedIn())
-      this.router.navigateByUrl('main');
+    if (this.authService.isLoggedIn()) this.router.navigateByUrl('main');
   }
 
-  getErrorMessage() {
+  getErrorMessage(): string {
     if (this.login.hasError('required') || this.password.hasError('required')) {
       return 'You must enter a value';
     }
-    return;
+    return '';
   }
 
-  onLogin() {
+  onLogin(): void {
     if (this.login.value && this.password.value) {
       this.authService.logIn(this.login.value, this.password.value);
       this.router.navigateByUrl('main');

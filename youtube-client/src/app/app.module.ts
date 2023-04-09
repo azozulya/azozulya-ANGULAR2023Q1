@@ -8,17 +8,9 @@ import { CoreModule } from './core/core.module';
 import { DataService } from './core/services/data.service';
 
 @NgModule({
-  declarations: [
-    AppComponent    
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    CoreModule    
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, CoreModule],
   providers: [DataService, AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}

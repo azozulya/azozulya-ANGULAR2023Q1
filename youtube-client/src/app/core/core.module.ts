@@ -9,19 +9,8 @@ import { SortComponent } from './components/sort/sort.component';
 import { TagFilterComponent } from './components/filter/tag-filter.component';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    TagFilterComponent,
-    SortComponent,
-    SearchFormComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    SharedModule,
-    FormsModule
-  ],
-  exports: [HeaderComponent]
+  declarations: [HeaderComponent, TagFilterComponent, SortComponent, SearchFormComponent],
+  imports: [CommonModule, RouterModule, SharedModule, FormsModule],
+  exports: [HeaderComponent],
 })
-
-export class CoreModule { }
+export class CoreModule {}

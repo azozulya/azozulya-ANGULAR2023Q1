@@ -1,5 +1,15 @@
 {
   "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
   "ignorePatterns": [
     "projects/**/*"
   ],
@@ -8,14 +18,24 @@
       "files": [
         "*.ts"
       ],
+      "parserOptions": {
+        "project": "**/tsconfig.json",
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+      },
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
-        "airbnb-typescript/base"        
+        "plugin:prettier/recommended"      
       ],
       "rules": {
+        "no-debugger": "off",
+        "@typescript-eslint/no-explicit-any": 2,
+        "@typescript-eslint/no-inferrable-types": 0,
+        "no-console": 0,
+        "@typescript-eslint/explicit-function-return-type": "error",
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -42,6 +62,14 @@
         "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {}
+    },
+    {
+      "files": ["*.html"],
+      "excludedFiles": ["*inline-template-*.component.html"],
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        "prettier/prettier": ["error", { "parser": "angular" }]
+      }
     }
   ]
 }

@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map, switchMap } from 'rxjs';
 import { IMovie } from 'src/app/youtube/models/movie.interface';
 import { IState } from 'src/app/youtube/models/state.interface';
-import mockDataList from '../../../data/data.json';
+import { IGet } from '../models/get.interface';
+import { ISearchMovie } from '../models/movie.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  private list: IMovie[] = mockDataList.items;
-
-  state: IState = {
+  private _state: IState = {
     search: '',
     sort: {
       active: 'date',
@@ -19,8 +20,19 @@ export class DataService {
     list: [],
   };
 
+  get state(): IState {
+    return this._state;
+  }
+
+  protected set state(newState: IState) {
+    this._state = newState;
+  }
+
+  constructor(private http: HttpClient) {}
+
   getMovieDetails(id: string): IMovie | undefined {
-    return this.list?.find((item) => item.id === id);
+    return null;
+    //return this.list?.find((item) => item.id === id);
   }
 
   getMovieList(): IMovie[] {
@@ -28,16 +40,26 @@ export class DataService {
   }
 
   searchMovies(searchStr: string): void {
-    if (!searchStr) return;
+    const search$: Observable<IGet> = this.http.get<IGet>('search', { params: { q: searchStr } });
 
-    const searchResult = this.list.filter((movie: IMovie) =>
-      movie.snippet.title.toLowerCase().includes(searchStr.toLowerCase())
-    );
-
-    this.state = {
-      ...this.state,
-      search: searchStr,
-      list: !searchResult.length ? [] : searchResult,
-    };
+    search$
+      .pipe(
+        map((data: IGet): string[] => {
+          return (data.items as ISearchMovie[]).reduce(
+            (acc: string[], item: ISearchMovie) => [...acc, item.id['videoId']],
+            []
+          );
+        }),
+        switchMap((ids: string[]) => {
+          return this.http.get<IGet>('videos', { params: { id: ids } });
+        })
+      )
+      .subscribe((data: IGet) => {
+        this.state = {
+          ...this.state,
+          search: searchStr,
+          list: !data.items.length ? [] : (data.items as IMovie[]),
+        };
+      });
   }
 }

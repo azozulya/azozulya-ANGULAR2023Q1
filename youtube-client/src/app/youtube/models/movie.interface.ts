@@ -6,7 +6,7 @@ export interface IMovie {
   etag: string;
   id: string;
   snippet: ISnippet;
-  statistics: IStatistic;
+  statistics?: IStatistic;
   source?: string;
   operator?: string;
 }

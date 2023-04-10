@@ -9,16 +9,16 @@ export interface ISnippet {
     default: IThumbnail;
     medium: IThumbnail;
     high: IThumbnail;
-    standard: IThumbnail;
-    maxres: IThumbnail;
+    standard?: IThumbnail;
+    maxres?: IThumbnail;
   };
   channelTitle: string;
-  tags: string[];
-  categoryId: string;
   liveBroadcastContent: string;
-  localized: {
+  tags?: string[];
+  categoryId?: string;
+  localized?: {
     title: string;
     description: string;
   };
-  defaultAudioLanguage: string;
+  defaultAudioLanguage?: string;
 }

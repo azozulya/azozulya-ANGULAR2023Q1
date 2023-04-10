@@ -5,5 +5,5 @@ export interface IState {
   search: string;
   sort: Sort;
   filter: string;
-  list: IMovie[];
+  list: IMovie[] | [];
 }

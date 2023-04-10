@@ -1,4 +1,4 @@
-<ul class="movie-statistic">
+<ul class="movie-statistic" *ngIf="movie.statistics">
   <li>
     <i class="fa-solid fa-eye"></i>
     <span>{{ movie.statistics.viewCount }}</span>

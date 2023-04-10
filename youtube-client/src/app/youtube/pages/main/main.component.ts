@@ -14,5 +14,3 @@ export class MainComponent {
 
   constructor(private dataService: DataService) {}
 }
-
-// AIzaSyDL-9NcsUHxWuMeVI4zCxb7K_523W5KBG0

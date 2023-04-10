@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { debounceTime, distinctUntilChanged, filter, fromEvent, map, Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { debounceTime, distinctUntilChanged, fromEvent, map, Observable } from 'rxjs';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -17,22 +17,19 @@ export class SearchFormComponent implements AfterViewInit {
   constructor(private dataService: DataService, private router: Router) {}
 
   ngAfterViewInit(): void {
-    this.search$ = fromEvent(this.inputSearch?.nativeElement, 'input');
+    this.search$ = fromEvent<InputEvent>(this.inputSearch?.nativeElement, 'input');
 
     this.search$
       ?.pipe(
-        map((event) => {
-          return (event.target as HTMLInputElement).value;
-        }),
         debounceTime(500),
+        map((event: InputEvent): string => (event.target as HTMLInputElement).value),
+        filter((val: string) => val.length > 3),
         distinctUntilChanged()
       )
-      .subscribe((searchStr) => {
-        if (searchStr.length > 3) {
-          this.dataService.searchMovies(searchStr);
+      .subscribe((searchStr: string): void => {
+        this.dataService.searchMovies(searchStr);
 
-          if (this.router.url !== '/main') this.router.navigateByUrl('/main');
-        }
+        if (this.router.url !== '/main') this.router.navigateByUrl('/main');
       });
   }
 }

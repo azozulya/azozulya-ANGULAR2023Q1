@@ -19,7 +19,10 @@
     <div class="movie-shadow">
       <div class="movie-img">
         <img
-          src="{{ item.snippet.thumbnails.standard.url }}"
+          src="{{
+            item.snippet.thumbnails.standard?.url ||
+              item.snippet.thumbnails.high?.url
+          }}"
           class="movie-img_img"
         />
       </div>
@@ -28,7 +31,9 @@
           <h2 class="movie-title">{{ item.snippet.title }}</h2>
           <p class="movie-date">{{ item.snippet.publishedAt | date }}</p>
         </div>
-        <p class="movie-description_title">Description:</p>
+        <p class="movie-description_title" *ngIf="item.snippet.description">
+          Description:
+        </p>
         <p class="movie-description">{{ item.snippet.description }}</p>
         <app-movie-statistic [movie]="item"></app-movie-statistic>
       </div>

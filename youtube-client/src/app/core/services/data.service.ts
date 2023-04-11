@@ -30,9 +30,8 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  getMovieDetails(id: string): IMovie | undefined {
-    return null;
-    //return this.list?.find((item) => item.id === id);
+  getMovieDetails(id: string): Observable<IMovie[]> {
+    return this.http.get<IGet>('videos', { params: { id } }).pipe(map((data: IGet) => data.items as IMovie[]));
   }
 
   getMovieList(): IMovie[] {

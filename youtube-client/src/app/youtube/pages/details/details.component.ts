@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 export class DetailsComponent implements OnInit {
   private id!: string | null;
 
-  item!: IMovie;
+  item: IMovie;
 
   constructor(
     private activeRouter: ActivatedRoute,
@@ -29,13 +29,14 @@ export class DetailsComponent implements OnInit {
       return;
     }
 
-    const details = this.dataService.getMovieDetails(this.id);
+    this.dataService.getMovieDetails(this.id).subscribe((data) => {
+      if (!data.length) {
+        this.router.navigateByUrl('/404');
+        return;
+      }
 
-    if (!details) {
-      this.router.navigateByUrl('/404');
-      return;
-    }
-    this.item = details;
+      this.item = data[0];
+    });
   }
 
   goBack(): void {

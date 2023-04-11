@@ -7,7 +7,7 @@
     <i class="fa-sharp fa-solid fa-heart"></i>
     <span>{{ movie.statistics.likeCount }}</span>
   </li>
-  <li>
+  <li *ngIf="movie.statistics.dislikeCount">
     <i class="fa-sharp fa-solid fa-heart dislike"></i>
     <span>{{ movie.statistics.dislikeCount }}</span>
   </li>

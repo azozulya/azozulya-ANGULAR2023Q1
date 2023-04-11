@@ -13,7 +13,7 @@
         </button>
       </div>
 
-      <div class="user" *ngIf="auth.isLogged">
+      <div class="user" *ngIf="isLogged; else logout">
         {{ auth.userName }}
         <svg
           width="24"
@@ -34,11 +34,24 @@
           mat-raised-button
           color="accent"
           (click)="onLogout()"
-          class="logout"
+          class="auth-btn"
         >
           logout
         </button>
       </div>
+
+      <ng-template #logout>
+        <div class="user">
+          <button
+            mat-raised-button
+            color="accent"
+            *ngIf="!isLogged"
+            class="auth-btn"
+          >
+            login
+          </button>
+        </div>
+      </ng-template>
     </div>
 
     <div class="sorting-panel" [class.hide]="isHidden">

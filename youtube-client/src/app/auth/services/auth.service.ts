@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ILogin } from '../models/login.interface';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,15 +9,18 @@ export class AuthService {
   private userKey = 'youtube-user';
 
   auth = {
-    isLogged: false,
     userName: '',
   };
 
+  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor() {
     const userData = localStorage.getItem(this.userKey);
+
     if (userData) {
       const user: ILogin = JSON.parse(userData);
-      this.auth = { isLogged: true, userName: user.login };
+      this.auth = { userName: user.login };
+      this.isLogged$.next(true);
     }
   }
 
@@ -26,13 +30,13 @@ export class AuthService {
 
   logIn(login: string, password: string): void {
     localStorage.setItem(this.userKey, JSON.stringify({ login, password }));
-    this.auth.isLogged = true;
     this.auth.userName = login;
+    this.isLogged$.next(true);
   }
 
   logOut(): void {
     localStorage.removeItem(this.userKey);
-    this.auth.isLogged = false;
     this.auth.userName = '';
+    this.isLogged$.next(false);
   }
 }

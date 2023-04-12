@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ValidateUrl } from 'src/app/shared/url.validator';
 
 @Component({
   selector: 'app-admin',
@@ -10,8 +11,8 @@ export class AdminComponent {
   createForm: FormGroup = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
     description: new FormControl('', [Validators.maxLength(255)]),
-    img: new FormControl('', [Validators.required]),
-    link: new FormControl('', [Validators.required]),
+    img: new FormControl('', [Validators.required, ValidateUrl]),
+    link: new FormControl('', [Validators.required, ValidateUrl]),
   });
 
   get title(): FormControl {

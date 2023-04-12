@@ -5,6 +5,7 @@ import { LoginComponent } from './auth/pages/login/login.component';
 import { NotFoundComponent } from './auth/pages/not-found/not-found.component';
 import { LoginGuard } from './auth/guards/login.guard';
 import { MainComponent } from './youtube/pages/main/main.component';
+import { AdminComponent } from './auth/pages/admin/admin.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,12 @@ const routes: Routes = [
     loadChildren: () => import('./youtube/youtube.module').then((m) => m.YoutubeModule),
     component: MainComponent,
     pathMatch: 'full',
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    component: AdminComponent,
     canActivate: [LoginGuard],
   },
   {

@@ -13,7 +13,10 @@ export class AdminComponent {
     description: new FormControl('', [Validators.maxLength(255)]),
     img: new FormControl('', [Validators.required, ValidateUrl]),
     link: new FormControl('', [Validators.required, ValidateUrl]),
+    date: new FormControl('', [Validators.required]),
   });
+
+  maxDate = new Date();
 
   get title(): FormControl {
     return this.createForm.get('title') as FormControl<string>;
@@ -31,7 +34,11 @@ export class AdminComponent {
     return this.createForm.get('link') as FormControl<string>;
   }
 
+  get date(): FormControl {
+    return this.createForm.get('date') as FormControl<string>;
+  }
+
   onCreate(): void {
-    console.log('create card');
+    console.log('create card', this.createForm.status);
   }
 }

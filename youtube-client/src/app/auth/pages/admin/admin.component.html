@@ -30,7 +30,9 @@
       <mat-error *ngIf="img.errors?.['required']"
         >Please enter a link to the image</mat-error
       >
-      <mat-error>The image link is invalid</mat-error>
+      <mat-error *ngIf="img.hasError('invalidUrl')"
+        >The image link is invalid</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -39,7 +41,30 @@
       <mat-error *ngIf="link.errors?.['required']"
         >Please enter a link to the video</mat-error
       >
-      <mat-error>The video link is invalid</mat-error>
+      <mat-error *ngIf="link.hasError('invalidUrl')"
+        >The video link is invalid</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input
+        matInput
+        formControlName="date"
+        [matDatepicker]="picker"
+        (click)="picker.open()"
+        readonly
+        [max]="maxDate"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="date.hasError('required')"
+        >Please enter a creation date</mat-error
+      >
     </mat-form-field>
 
     <button

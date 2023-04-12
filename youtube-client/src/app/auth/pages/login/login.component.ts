@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -9,9 +9,18 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  login = new FormControl('', [Validators.required]);
+  authForm: FormGroup = new FormGroup({
+    login: new FormControl<string>('', [Validators.required, Validators.email]),
+    password: new FormControl<string>('', [Validators.required]),
+  });
 
-  password = new FormControl('', [Validators.required]);
+  get login(): FormControl<string> {
+    return this.authForm.get('login') as FormControl<string>;
+  }
+
+  get password(): FormControl<string> {
+    return this.authForm.get('password') as FormControl<string>;
+  }
 
   constructor(private router: Router, private authService: AuthService) {}
 
@@ -19,17 +28,8 @@ export class LoginComponent implements OnInit {
     if (this.authService.isLoggedIn()) this.router.navigateByUrl('main');
   }
 
-  getErrorMessage(): string {
-    if (this.login.hasError('required') || this.password.hasError('required')) {
-      return 'You must enter a value';
-    }
-    return '';
-  }
-
   onLogin(): void {
-    if (this.login.value && this.password.value) {
-      this.authService.logIn(this.login.value, this.password.value);
-      this.router.navigateByUrl('main');
-    }
+    this.authService.logIn(this.login.value, this.password.value);
+    this.router.navigateByUrl('main');
   }
 }

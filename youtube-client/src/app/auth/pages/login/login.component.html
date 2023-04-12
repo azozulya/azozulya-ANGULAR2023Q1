@@ -1,16 +1,39 @@
 <div class="login-form">
   <h2>Login</h2>
-  <form>
+  <form [formGroup]="authForm">
     <mat-form-field appearance="fill">
       <mat-label>Login</mat-label>
-      <input matInput [formControl]="login" required />
-      <mat-error *ngIf="login.invalid">{{ getErrorMessage() }}</mat-error>
+      <input matInput formControlName="login" required />
+      <mat-error *ngIf="login.errors?.['required']"
+        >Please enter a login email</mat-error
+      >
+      <mat-error *ngIf="login.errors?.['email']"
+        >The login email is invalid</mat-error
+      >
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Password</mat-label>
-      <input matInput [formControl]="password" required />
-      <mat-error *ngIf="password.invalid">{{ getErrorMessage() }}</mat-error>
+      <input matInput formControlName="password" required />
+      <mat-error *ngIf="password.errors?.['required']"
+        >Please enter a password</mat-error
+      >
+      <mat-error *ngIf="password.invalid"
+        >Your password isn't strong enough
+        <ul>
+          <li>at least 8 characters</li>
+          <li>a mixture of both uppercase and lowercase letters</li>
+          <li>a mixture of letters and numbers</li>
+          <li>inclusion of at least one special character, e.g., ! @ # ? ]</li>
+        </ul>
+      </mat-error>
     </mat-form-field>
-    <button mat-raised-button color="accent" (click)="onLogin()">Submit</button>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="onLogin()"
+      [disabled]="!authForm.valid"
+    >
+      Submit
+    </button>
   </form>
 </div>

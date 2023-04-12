@@ -78,7 +78,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding: 2rem 0 0;
+  padding:0;
 }
 
 .hide {
@@ -101,4 +101,18 @@
   padding: 0.35rem;
   height: auto;
   margin: 0 0 0 1rem;
+}
+
+.admin-link {
+  text-align: right;
+
+  &_link {
+    text-decoration: underline;
+    color: #2f80ed;
+    cursor: pointer;
+  }
+
+  &_link:hover {
+    text-decoration: none;
+  }
 }

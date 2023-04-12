@@ -52,8 +52,10 @@
           </button>
         </div>
       </ng-template>
+      <div class="admin-link" *ngIf="isLogged">
+        <a routerLink="/admin" class="admin-link_link">Admin page</a>
+      </div>
     </div>
-
     <div class="sorting-panel" [class.hide]="isHidden">
       <app-sort></app-sort>
       <app-tag-filter></app-tag-filter>

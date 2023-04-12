@@ -7,7 +7,6 @@ interface IValidatorPassword {
 }
 
 export function ValidatorPassword(control: AbstractControl): IValidatorPassword | null {
-  console.log(control.value);
   const val = control.value;
 
   if (!val) return null;

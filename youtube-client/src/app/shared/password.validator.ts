@@ -10,8 +10,7 @@ export function ValidatorPassword(control: AbstractControl): IValidatorPassword 
   console.log(control.value);
   const val = control.value;
 
-  if (!val)
-    return null;
+  if (!val) return null;
 
   let result: IValidatorPassword = {};
 

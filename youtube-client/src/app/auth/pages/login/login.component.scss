@@ -1,8 +1,7 @@
 .login-form {
   margin: 2rem auto;
   background-color: #F2F2F2;
-  width: fit-content;
-  max-width: 22rem;
+  width: 20rem;
   padding: 1rem 2rem 2rem;
   box-sizing: border-box;
   border-radius: 5px;
@@ -15,8 +14,15 @@
   .mdc-button {
     margin-top: 1rem;
   }
+  .mat-mdc-form-field-bottom-align::before {
+    height: auto;
+  }
 
   .mat-mdc-form-field-error-wrapper {
     position: relative;
+  }
+
+  .errors {
+    padding-left: 1rem;
   }
 }

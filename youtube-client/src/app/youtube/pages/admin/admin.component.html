@@ -77,3 +77,11 @@
     </button>
   </form>
 </div>
+
+<h2>CustomCards</h2>
+<ul>
+  <li *ngFor="let card of customCards$ | async">
+    {{ card.title }}
+    <img src="{{ card.image }}" />
+  </li>
+</ul>

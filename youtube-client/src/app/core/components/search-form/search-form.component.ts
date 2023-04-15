@@ -2,6 +2,8 @@ import { AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation } fr
 import { debounceTime, distinctUntilChanged, filter, fromEvent, map, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
+import { Store } from '@ngrx/store';
+import { CardsAction } from 'src/app/redux/actions/cards.action';
 
 @Component({
   selector: 'app-search-form',
@@ -14,7 +16,7 @@ export class SearchFormComponent implements AfterViewInit {
 
   @ViewChild('inputSearch') inputSearch?: ElementRef;
 
-  constructor(private dataService: DataService, private router: Router) {}
+  constructor(private router: Router, private store: Store) { }
 
   ngAfterViewInit(): void {
     this.search$ = fromEvent<InputEvent>(this.inputSearch?.nativeElement, 'input');
@@ -27,7 +29,7 @@ export class SearchFormComponent implements AfterViewInit {
         distinctUntilChanged()
       )
       .subscribe((searchStr: string): void => {
-        this.dataService.searchMovies(searchStr);
+        this.store.dispatch(CardsAction.searchCards({ searchStr }));
 
         if (this.router.url !== '/main') this.router.navigateByUrl('/main');
       });

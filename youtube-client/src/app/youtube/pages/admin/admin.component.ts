@@ -5,7 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ValidateUrl } from 'src/app/shared/url.validator';
 import { ICustomCard } from '../../models/custom-card.interface';
 import { CustomCardsActions } from 'src/app/redux/actions/custom-card.actions';
-import { selectCustomCards } from 'src/app/redux/selectors/custom-card.selector';
+import { selectCustomCards } from 'src/app/redux/selectors/custom-cards.selector';
 
 @Component({
   selector: 'app-admin',

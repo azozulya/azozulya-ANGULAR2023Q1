@@ -8,5 +8,8 @@
   <!-- <app-search-results
     [list]="movies$ | async | sort : state.sort | filter : state.filter"
   ></app-search-results> -->
-  <app-search-results [list]="movies$ | async"></app-search-results>
+  <app-search-results
+    *ngIf="movies$ | async as movies"
+    [list]="movies | sort : (sort$ | async)"
+  ></app-search-results>
 </div>

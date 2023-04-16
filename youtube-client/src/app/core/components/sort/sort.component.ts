@@ -1,7 +1,10 @@
 import { OnInit, Component, ViewEncapsulation } from '@angular/core';
-import { ESort } from 'src/app/core/models/sort.interface';
 import { Sort } from '@angular/material/sort';
-import { DataService } from '../../services/data.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { ESort } from 'src/app/core/models/sort.interface';
+import { SortActions } from 'src/app/redux/actions/sort.action';
+import { selectSort } from 'src/app/redux/selectors/sort.selector';
 
 @Component({
   selector: 'app-sort',
@@ -12,12 +15,12 @@ import { DataService } from '../../services/data.service';
 export class SortComponent implements OnInit {
   sortParams = ESort;
 
-  defaultSort!: Sort;
+  defaultSort$!: Observable<Sort>;
 
-  constructor(private dataService: DataService) {}
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.defaultSort = this.dataService.state.sort;
+    this.defaultSort$ = this.store.select(selectSort);
   }
 
   sortData(sort: Sort): void {
@@ -25,6 +28,6 @@ export class SortComponent implements OnInit {
       sort.direction = 'asc';
     }
 
-    this.dataService.state.sort = sort;
+    this.store.dispatch(SortActions.changeSort({ ...sort }));
   }
 }

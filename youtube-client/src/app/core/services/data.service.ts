@@ -17,7 +17,6 @@ export class DataService {
       direction: 'asc',
     },
     filter: '',
-    list: [],
   };
 
   get state(): IState {

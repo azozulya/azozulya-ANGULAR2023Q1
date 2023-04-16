@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkyoutube_client=self.webpackChunkyoutube_client||[]).push([[674],{1674:(r,o,u)=>{u.r(o),u.d(o,{AuthModule:()=>M});var n=u(6895),a=u(1511),E=u(8438),t=u(433),l=u(4650);let M=(()=>{class _{}return _.\u0275fac=function(s){return new(s||_)},_.\u0275mod=l.oAB({type:_}),_.\u0275inj=l.cJS({imports:[n.ez,t.u5,t.UX,E.Bz,a.m]}),_})()}}]);

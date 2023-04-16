@@ -10,6 +10,6 @@
   ></app-search-results> -->
   <app-search-results
     *ngIf="movies$ | async as movies"
-    [list]="movies | sort : (sort$ | async)"
+    [list]="movies | sort : (sort$ | async) | filter : (filter$ | async)"
   ></app-search-results>
 </div>

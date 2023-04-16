@@ -8,6 +8,6 @@ export class FilterPipe implements PipeTransform {
   transform(list: IMovie[], filterTag: string): IMovie[] {
     if (!list || !filterTag) return list;
 
-    return list.filter((item) => item.snippet.tags.filter((tag) => tag.includes(filterTag)).length);
+    return [...list].filter((item) => item.snippet.tags?.filter((tag) => tag.includes(filterTag)).length);
   }
 }

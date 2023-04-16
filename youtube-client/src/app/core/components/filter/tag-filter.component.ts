@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { DataService } from '../../services/data.service';
+import { Store } from '@ngrx/store';
+import { FilterAction } from 'src/app/redux/actions/filter.action';
 
 @Component({
   selector: 'app-tag-filter',
@@ -10,9 +11,10 @@ import { DataService } from '../../services/data.service';
 export class TagFilterComponent {
   filterTag!: string;
 
-  constructor(private dataService: DataService) {}
+  constructor(private store: Store) {}
 
   onChange(): void {
-    this.dataService.state.filter = this.filterTag;
+    if (this.filterTag.length < 3) return;
+    this.store.dispatch(FilterAction({ filter: this.filterTag }));
   }
 }

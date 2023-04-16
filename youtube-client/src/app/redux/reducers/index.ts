@@ -6,6 +6,7 @@ import { cardsReducer } from './cards.reducer';
 import { sortReducer } from './sort.reducer';
 import { ICustomCard } from 'src/app/youtube/models/custom-card.interface';
 import { IMovie } from 'src/app/youtube/models/movie.interface';
+import { filterReducer } from './filter.reducer';
 
 export interface State {
   customCards: ICustomCard[];
@@ -28,7 +29,7 @@ export const reducers: ActionReducerMap<State> = {
   customCards: customCardReducer,
   cards: cardsReducer,
   sort: sortReducer,
-  filter: undefined,
+  filter: filterReducer,
 };
 
 export const metaReducers: MetaReducer<State>[] = isDevMode() ? [] : [];

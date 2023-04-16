@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/auth/services/auth.service';
-import { DataService } from '../../services/data.service';
-import { IState } from 'src/app/youtube/models/state.interface';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,16 +11,13 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit, OnDestroy {
   isHidden = true;
 
-  state!: IState;
-
   auth: { userName: string };
 
   isLogged: boolean = false;
 
   private subscription: Subscription;
 
-  constructor(private dataService: DataService, private authService: AuthService, private router: Router) {
-    this.state = this.dataService.state;
+  constructor(private authService: AuthService, private router: Router) {
     this.auth = this.authService.auth;
   }
 
@@ -34,10 +29,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  onFilterList(filterTag: string): void {
-    this.state.filter = filterTag;
   }
 
   onLogout(): void {

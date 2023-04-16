@@ -17,7 +17,7 @@ export class SortComponent implements OnInit {
 
   defaultSort$!: Observable<Sort>;
 
-  constructor(private store: Store) { }
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.defaultSort$ = this.store.select(selectSort);

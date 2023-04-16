@@ -15,11 +15,11 @@ export class SortPipe implements PipeTransform {
 
     switch (sort.active) {
       case sortParam.DATE: {
-        sortedResult = list.sort((a, b) => Date.parse(a.snippet.publishedAt) - Date.parse(b.snippet.publishedAt));
+        sortedResult = [...list].sort((a, b) => Date.parse(a.snippet.publishedAt) - Date.parse(b.snippet.publishedAt));
         break;
       }
       case sortParam.VIEWS: {
-        sortedResult = list.sort((a, b) => parseInt(a.statistics.viewCount) - parseInt(b.statistics.viewCount));
+        sortedResult = [...list].sort((a, b) => parseInt(a.statistics.viewCount) - parseInt(b.statistics.viewCount));
         break;
       }
     }

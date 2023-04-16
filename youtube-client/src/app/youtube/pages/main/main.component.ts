@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
 
   movies$: Observable<IMovie[]>;
 
-  constructor(private store: Store, private dataService: DataService) { }
+  constructor(private store: Store, private dataService: DataService) {}
 
   ngOnInit(): void {
     this.movies$ = this.store.select(selectCards);

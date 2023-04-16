@@ -9,7 +9,7 @@ import { IMovie } from 'src/app/youtube/models/movie.interface';
 
 @Injectable()
 export class CardsEffects {
-  constructor(private actions$: Actions, private dataService: DataService) { }
+  constructor(private actions$: Actions, private dataService: DataService) {}
 
   searchCards = createEffect(() => {
     return this.actions$.pipe(

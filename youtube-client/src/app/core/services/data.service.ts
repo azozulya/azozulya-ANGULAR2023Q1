@@ -28,7 +28,7 @@ export class DataService {
     this._state = newState;
   }
 
-  constructor(private http: HttpClient, private store: Store) { }
+  constructor(private http: HttpClient, private store: Store) {}
 
   getMovieDetails(id: string): Observable<IMovie[]> {
     return this.http.get<IGet>('videos', { params: { id } }).pipe(map((data: IGet) => data.items as IMovie[]));

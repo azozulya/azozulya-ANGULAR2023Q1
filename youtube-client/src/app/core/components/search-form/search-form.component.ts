@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, fromEvent, map, Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { DataService } from '../../services/data.service';
 import { Store } from '@ngrx/store';
 import { CardsAction } from 'src/app/redux/actions/cards.action';
 
@@ -16,7 +15,7 @@ export class SearchFormComponent implements AfterViewInit {
 
   @ViewChild('inputSearch') inputSearch?: ElementRef;
 
-  constructor(private router: Router, private store: Store) { }
+  constructor(private router: Router, private store: Store) {}
 
   ngAfterViewInit(): void {
     this.search$ = fromEvent<InputEvent>(this.inputSearch?.nativeElement, 'input');

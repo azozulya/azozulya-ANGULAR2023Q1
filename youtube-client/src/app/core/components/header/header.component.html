@@ -8,8 +8,13 @@
 
         <app-search-form></app-search-form>
 
-        <button mat-raised-button color="accent" (click)="isHidden = !isHidden">
-          <i class="fa-solid fa-sliders" style="color: #ffffff"></i>
+        <button
+          mat-raised-button
+          color="accent"
+          *ngIf="isLogged"
+          (click)="isHidden = !isHidden"
+        >
+          <i class="fa-solid fa-sliders"></i>
         </button>
       </div>
 

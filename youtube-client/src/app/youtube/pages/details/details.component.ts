@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/core/services/data.service';
-import { IMovie } from '../../models/movie.interface';
 import { Location } from '@angular/common';
+import { IMovieApi } from '../../models/movie-api.interface';
 
 @Component({
   selector: 'app-details',
@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 export class DetailsComponent implements OnInit {
   private id!: string | null;
 
-  item: IMovie;
+  item: IMovieApi;
 
   constructor(
     private activeRouter: ActivatedRoute,

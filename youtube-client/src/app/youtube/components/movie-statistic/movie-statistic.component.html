@@ -1,15 +1,15 @@
-<ul class="movie-statistic" *ngIf="movie.statistics">
+<ul class="movie-statistic" *ngIf="statistic">
   <li>
     <i class="fa-solid fa-eye"></i>
-    <span>{{ movie.statistics.viewCount }}</span>
+    <span>{{ statistic.viewCount }}</span>
   </li>
   <li>
     <i class="fa-sharp fa-solid fa-heart"></i>
-    <span>{{ movie.statistics.likeCount }}</span>
+    <span>{{ statistic.likeCount }}</span>
   </li>
-  <li *ngIf="movie.statistics.dislikeCount">
+  <li *ngIf="statistic.dislikeCount">
     <i class="fa-sharp fa-solid fa-heart dislike"></i>
-    <span>{{ movie.statistics.dislikeCount }}</span>
+    <span>{{ statistic.dislikeCount }}</span>
   </li>
   <li>
     <svg
@@ -28,6 +28,6 @@
         fill="black"
       />
     </svg>
-    <span>{{ movie.statistics.commentCount }}</span>
+    <span>{{ statistic.commentCount }}</span>
   </li>
 </ul>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IMovie } from '../../models/movie.interface';
+import { IStatistic } from '../../models/statistic.interface';
 
 @Component({
   selector: 'app-movie-statistic',
@@ -7,5 +7,5 @@ import { IMovie } from '../../models/movie.interface';
   styleUrls: ['./movie-statistic.component.scss'],
 })
 export class MovieStatisticComponent {
-  @Input() movie!: IMovie;
+  @Input() statistic!: IStatistic;
 }

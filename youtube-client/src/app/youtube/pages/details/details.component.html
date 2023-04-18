@@ -35,7 +35,9 @@
           Description:
         </p>
         <p class="movie-description">{{ item.snippet.description }}</p>
-        <app-movie-statistic [movie]="item"></app-movie-statistic>
+        <app-movie-statistic
+          [statistic]="item.statistics"
+        ></app-movie-statistic>
       </div>
     </div>
   </section>

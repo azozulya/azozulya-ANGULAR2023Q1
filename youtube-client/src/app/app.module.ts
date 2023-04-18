@@ -13,6 +13,7 @@ import { CoreModule } from './core/core.module';
 import { DataService } from './core/services/data.service';
 import { reducers, metaReducers } from './redux/reducers';
 import { CardsEffects } from './redux/effects/cards.effects';
+import { YoutubeModule } from './youtube/youtube.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { CardsEffects } from './redux/effects/cards.effects';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
+    YoutubeModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {
       metaReducers,

@@ -1,15 +1,9 @@
 <div class="container">
-  <!-- <p *ngIf="!state.list.length && !state.search" class="message">
-    Let's find something
-  </p>
-  <p *ngIf="!state.list.length && state.search" class="message">
-    Nothing found. Try again
-  </p> -->
-  <!-- <app-search-results
-    [list]="movies$ | async | sort : state.sort | filter : state.filter"
-  ></app-search-results> -->
   <app-search-results
-    *ngIf="movies$ | async as movies"
+    *ngIf="movies$ | async as movies; else notfound"
     [list]="movies | sort : (sort$ | async) | filter : (filter$ | async)"
   ></app-search-results>
+  <ng-template #notfound>
+    <p class="message">Nothing found. Try again</p>
+  </ng-template>
 </div>

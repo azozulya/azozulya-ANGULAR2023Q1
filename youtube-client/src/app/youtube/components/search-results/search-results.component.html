@@ -3,16 +3,20 @@
     *ngFor="let item of list"
     class="movie"
     appColored
-    date="{{ item.snippet.publishedAt }}"
+    date="{{ item.publishedAt }}"
   >
     <img
-      src="{{ item.snippet.thumbnails.medium.url }}"
-      width="{{ item.snippet.thumbnails.medium.width }}"
+      src="{{ item.img.url }}"
+      width="{{ item.img.width }}"
       class="movie-image"
     />
-    <app-movie-statistic [movie]="item"></app-movie-statistic>
-    <p class="movie-title">{{ item.snippet.title }}</p>
-    <a [routerLink]="['/details', item.id]" mat-raised-button color="accent"
+    <app-movie-statistic [statistic]="item.statistics"></app-movie-statistic>
+    <p class="movie-title">{{ item.title }}</p>
+    <a
+      *ngIf="item.id"
+      [routerLink]="['/details', item.id]"
+      mat-raised-button
+      color="accent"
       >more...</a
     >
   </div>

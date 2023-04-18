@@ -1,0 +1,34 @@
+{
+  "cards": [
+    {      
+      "title": "Sunset Card 1",
+      "description": "30 мая 2019 года бы релиз Angular 8 и я решил записать  по нему быстрый курс. В видео вы узнаете, как Angular работает, как его установить.\nВ результате урока я покажу создание Todo приложения с разными подходами. Разберем работу с сервером, сервисами, пайпами, коммуникацией между компонентами и немного RxJS",      
+      "img": {
+        "url": "https://images.unsplash.com/photo-1489945891631-ec3f0d557901?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+      },
+      "link": "",               
+      "publishedAt": "2022-05-30T12:42:19.000Z",
+      "statistics": { "viewCount": "0", "likeCount": "0", "commentCount": "0" }
+    },
+    { 
+      "title": "Sunset Card 2",
+      "description": "In this video we will talk about what Angular is and then jump in and build a small app With Angular 7, looking at most of the fundamental concepts like components, services, modules, etc\n\nSponsor:\nhttp://www.netlify.com\n\nCode:\nhttps://github.com/bradtraversy/angular-crash-todolist\n\n💖 Become a Patron: Show support & get perks!\nhttp://www.patreon.com/traversymedia\n\nWebsite & Udemy Courses\nhttp://www.traversymedia.com\n\nFollow Traversy Media:\nhttps://www.facebook.com/traversymedia\nhttps://www.twitter.com/traversymedia\nhttps://www.instagram.com/traversymedia",
+      "img": {
+        "url": "https://images.unsplash.com/photo-1507593359922-13a611f07826?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+      },
+      "link": "",
+      "publishedAt": "2023-01-23T17:46:58.000Z",
+      "statistics": { "viewCount": "0", "likeCount": "0", "commentCount": "0" }
+    },
+    {
+      "title": "Sunset Card 3",
+      "description": "Полный курс по Angular 8+:\nhttps://clc.to/angular\n\nДобавляйте меня в ВК: https://vk.com/vladilen.minin\nTelegram: https://teleg.one/js_by_vladilen\nInstagram: https://www.instagram.com/vladilen.minin\nГруппа ВК: https://vk.com/js_by_vladilen\n\nПоддержать выпуск новых видео:\nЯД: https://money.yandex.ru/to/410013757655670\nPayPal: https://www.paypal.me/vladilenm \n\nУрок по Angular. В этом курсе вы познакомитесь со всеми основными элементами, которые есть в Angular с полного нуля\n\nAngular 8 Основы. Полный Курс. Урок для Новичков",
+      "img": {
+        "url": "https://images.unsplash.com/photo-1495567720989-cebdbdd97913?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8&w=300&q=80" 
+      },
+      "link": "",
+      "publishedAt": "2023-03-04T15:00:12.000Z",
+      "statistics": { "viewCount": "0", "likeCount": "0", "commentCount": "0" }
+    }
+  ]
+}

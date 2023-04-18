@@ -1,87 +1,97 @@
-<div class="create-form">
-  <h2>Create new card</h2>
-  <form [formGroup]="createForm">
-    <mat-form-field appearance="fill">
-      <mat-label>Title</mat-label>
-      <input matInput formControlName="title" required />
-      <mat-error *ngIf="title.errors?.['required']"
-        >Please enter a title</mat-error
-      >
-      <mat-error
-        *ngIf="(title.dirty || title.touched) && title.hasError('minlength')"
-        >The title is too short</mat-error
-      >
-      <mat-error *ngIf="title.hasError('maxlength')"
-        >The title is too long</mat-error
-      >
-    </mat-form-field>
+<div class="admin-page">
+  <div class="create-form_wrapper">
+    <div class="create-form">
+      <h2>Create new card</h2>
+      <form [formGroup]="createForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" required />
+          <mat-error *ngIf="title.errors?.['required']"
+            >Please enter a title</mat-error
+          >
+          <mat-error
+            *ngIf="
+              (title.dirty || title.touched) && title.hasError('minlength')
+            "
+            >The title is too short</mat-error
+          >
+          <mat-error *ngIf="title.hasError('maxlength')"
+            >The title is too long</mat-error
+          >
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Description</mat-label>
-      <input matInput formControlName="description" />
-      <mat-error *ngIf="description.hasError('maxlength')"
-        >The description is too long</mat-error
-      >
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" />
+          <mat-error *ngIf="description.hasError('maxlength')"
+            >The description is too long</mat-error
+          >
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Image</mat-label>
-      <input matInput formControlName="img" required />
-      <mat-error *ngIf="img.errors?.['required']"
-        >Please enter a link to the image</mat-error
-      >
-      <mat-error *ngIf="img.hasError('invalidUrl')"
-        >The image link is invalid</mat-error
-      >
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Image</mat-label>
+          <input matInput formControlName="img" required />
+          <mat-error *ngIf="img.errors?.['required']"
+            >Please enter a link to the image</mat-error
+          >
+          <mat-error *ngIf="img.hasError('invalidUrl')"
+            >The image link is invalid</mat-error
+          >
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Link video</mat-label>
-      <input matInput formControlName="link" required />
-      <mat-error *ngIf="link.errors?.['required']"
-        >Please enter a link to the video</mat-error
-      >
-      <mat-error *ngIf="link.hasError('invalidUrl')"
-        >The video link is invalid</mat-error
-      >
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Link video</mat-label>
+          <input matInput formControlName="link" required />
+          <mat-error *ngIf="link.errors?.['required']"
+            >Please enter a link to the video</mat-error
+          >
+          <mat-error *ngIf="link.hasError('invalidUrl')"
+            >The video link is invalid</mat-error
+          >
+        </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Date</mat-label>
-      <input
-        matInput
-        formControlName="date"
-        [matDatepicker]="picker"
-        (click)="picker.open()"
-        readonly
-        [max]="maxDate"
-      />
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-      <mat-error *ngIf="date.hasError('required')"
-        >Please enter a creation date</mat-error
-      >
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Date</mat-label>
+          <input
+            matInput
+            formControlName="date"
+            [matDatepicker]="picker"
+            (click)="picker.open()"
+            readonly
+            [max]="maxDate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="date.hasError('required')"
+            >Please enter a creation date</mat-error
+          >
+        </mat-form-field>
 
-    <button
-      mat-raised-button
-      color="accent"
-      (click)="onCreate()"
-      [disabled]="!createForm.valid"
-    >
-      Create card
-    </button>
-  </form>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="onCreate()"
+          [disabled]="!createForm.valid"
+        >
+          Create card
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="cards-header">
+      <h2>Custom cards</h2>
+      <button mat-raised-button color="accent" (click)="onGenerateCards()">
+        Generate 3 cards
+      </button>
+    </div>
+    <app-custom-card
+      *ngIf="customCards$ | async as customCards"
+      [cards]="customCards"
+    ></app-custom-card>
+  </div>
 </div>
-
-<h2>CustomCards</h2>
-<ul>
-  <li *ngFor="let card of customCards$ | async">
-    {{ card.title }}
-    <img src="{{ card.image }}" />
-  </li>
-</ul>

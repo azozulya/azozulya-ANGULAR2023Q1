@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { IMovie } from '../../models/movie.interface';
-import { selectCards } from 'src/app/redux/selectors/cards.selector';
+import { selectAllCards } from 'src/app/redux/selectors/cards.selector';
 import { selectSort } from 'src/app/redux/selectors/sort.selector';
 import { selectFilter } from 'src/app/redux/selectors/filter.selector';
+import { IMovie } from '../../models/movie.interface';
 
 @Component({
   selector: 'app-main',
@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.movies$ = this.store.select(selectCards);
+    this.movies$ = this.store.select(selectAllCards);
     this.sort$ = this.store.select(selectSort);
     this.filter$ = this.store.select(selectFilter);
   }

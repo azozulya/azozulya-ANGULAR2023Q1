@@ -1,0 +1,52 @@
+.cards {  
+  list-style: none;
+  padding-left: 0;
+
+  .card {    
+    margin-bottom:1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: solid 2px #eee;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3rem;
+      margin-bottom: 1rem;
+    }
+    &-title {
+      margin-top: 0; 
+      margin-bottom: 0;     
+      font-size: .9rem;
+    }
+
+    &-date {
+      margin-top: 0;
+      margin-bottom: 0;
+      color: #6a6868;
+      font-size: .7rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    &-img {
+      width: 40%;
+      max-width: 8rem;
+
+      &_img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &-details {      
+      display: flex;
+      gap: 2rem;
+    }
+
+    &-description {
+      width: 60%;
+      margin-top: 0;
+    }
+  }
+}

@@ -1,11 +1,12 @@
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ValidateUrl } from 'src/app/shared/url.validator';
-import { ICustomCard } from '../../models/custom-card.interface';
 import { CustomCardsActions } from 'src/app/redux/actions/custom-card.actions';
 import { selectCustomCards } from 'src/app/redux/selectors/custom-cards.selector';
+import mockCustomCards from '../../../../data/custom-cards.json';
+import { IMovie } from '../../models/movie.interface';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +14,9 @@ import { selectCustomCards } from 'src/app/redux/selectors/custom-cards.selector
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-  customCards$: Observable<ICustomCard[]>;
+  @Output() cards: IMovie[];
+
+  customCards$: Observable<IMovie[]>;
 
   createForm: FormGroup = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
@@ -52,7 +55,17 @@ export class AdminComponent implements OnInit {
   }
 
   onCreate(): void {
-    this.store.dispatch(CustomCardsActions.createCard({ card: this.createForm.value }));
+    const card = {
+      ...this.createForm.value,
+      statistics: { viewCount: 0, likeCount: 0, commentCount: 0 },
+    };
+
+    this.store.dispatch(CustomCardsActions.create({ card }));
     this.createForm.reset();
+  }
+
+  onGenerateCards(): void {
+    console.log(mockCustomCards.cards);
+    this.store.dispatch(CustomCardsActions.generate({ cards: mockCustomCards.cards }));
   }
 }

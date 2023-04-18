@@ -21,7 +21,13 @@ export class ColoredDirective implements OnInit {
 
   private checkDate(date: Date, month: number, type: 'month' | 'day' = 'month'): boolean {
     const d = new Date(Date.now());
-    type === 'month' ? d.setMonth(d.getMonth() - month) : d.setDate(d.getDate() - 7);
+
+    if (type === 'month') {
+      d.setMonth(d.getMonth() - month);
+    } else {
+      d.setDate(d.getDate() - 7);
+    }
+
     return date > d;
   }
 

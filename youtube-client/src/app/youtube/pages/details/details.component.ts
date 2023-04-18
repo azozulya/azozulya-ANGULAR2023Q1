@@ -29,7 +29,7 @@ export class DetailsComponent implements OnInit {
       return;
     }
 
-    this.dataService.getMovieDetails(this.id).subscribe((data) => {
+    this.dataService.getMovieById(this.id).subscribe((data) => {
       if (!data.length) {
         this.router.navigateByUrl('/404');
         return;

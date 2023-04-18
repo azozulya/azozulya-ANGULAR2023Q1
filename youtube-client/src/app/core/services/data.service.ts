@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { IMovie } from 'src/app/youtube/models/movie.interface';
+import { IMovieApi } from 'src/app/youtube/models/movie-api.interface';
 import { IGet } from '../models/get.interface';
 
 @Injectable({
@@ -10,8 +10,8 @@ import { IGet } from '../models/get.interface';
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  getMovieDetails(id: string): Observable<IMovie[]> {
-    return this.http.get<IGet>('videos', { params: { id } }).pipe(map((data: IGet) => data.items as IMovie[]));
+  getMovieDetails(id: string): Observable<IMovieApi[]> {
+    return this.http.get<IGet>('videos', { params: { id } }).pipe(map((data: IGet) => data.items as IMovieApi[]));
   }
 
   getStatistics(ids: string[]): Observable<IGet> {

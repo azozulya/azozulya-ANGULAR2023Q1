@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Sort } from '@angular/material/sort';
-import { IMovie } from 'src/app/youtube/models/movie.interface';
 import { ESort } from 'src/app/core/models/sort.interface';
+import { IMovie } from '../models/movie.interface';
 
 @Pipe({
   name: 'sort',
@@ -15,10 +15,11 @@ export class SortPipe implements PipeTransform {
 
     switch (sort.active) {
       case sortParam.DATE: {
-        sortedResult = [...list].sort((a, b) => Date.parse(a.snippet.publishedAt) - Date.parse(b.snippet.publishedAt));
+        sortedResult = [...list].sort((a, b) => Date.parse(a.publishedAt) - Date.parse(b.publishedAt));
         break;
       }
       case sortParam.VIEWS: {
+        console.log(list);
         sortedResult = [...list].sort((a, b) => parseInt(a.statistics.viewCount) - parseInt(b.statistics.viewCount));
         break;
       }

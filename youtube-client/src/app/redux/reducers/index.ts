@@ -4,12 +4,11 @@ import { Sort } from '@angular/material/sort';
 import { customCardReducer } from './custom-card.reducer';
 import { cardsReducer } from './cards.reducer';
 import { sortReducer } from './sort.reducer';
-import { ICustomCard } from 'src/app/youtube/models/custom-card.interface';
-import { IMovie } from 'src/app/youtube/models/movie.interface';
 import { filterReducer } from './filter.reducer';
+import { IMovie } from 'src/app/youtube/models/movie.interface';
 
 export interface State {
-  customCards: ICustomCard[];
+  customCards: IMovie[];
   cards: IMovie[];
   sort: Sort;
   filter: string;

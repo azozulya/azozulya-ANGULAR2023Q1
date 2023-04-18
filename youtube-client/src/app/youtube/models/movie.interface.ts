@@ -1,12 +1,16 @@
-import { ISnippet } from './snippet.interface';
 import { IStatistic } from './statistic.interface';
 
 export interface IMovie {
-  kind: string;
-  etag: string;
-  id: string;
-  snippet: ISnippet;
+  id?: string;
+  title: string;
+  description?: string;
+  img: {
+    url: string;
+    width?: number;
+    height?: number;
+  };
+  tags?: string[];
+  link?: string;
+  publishedAt: string;
   statistics?: IStatistic;
-  source?: string;
-  operator?: string;
 }

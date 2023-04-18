@@ -1,10 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 import { CustomCardsActions } from '../actions/custom-card.actions';
-import { ICustomCard } from 'src/app/youtube/models/custom-card.interface';
+import { IMovie } from 'src/app/youtube/models/movie.interface';
 
-const initialState: ICustomCard[] = [];
+const initialState: IMovie[] = [];
 
 export const customCardReducer = createReducer(
   initialState,
-  on(CustomCardsActions.createCard, (state, { card }): ICustomCard[] => [...state, card])
+  on(CustomCardsActions.create, (state, { card }): IMovie[] => [card, ...state]),
+  on(CustomCardsActions.generate, (state, { cards }): IMovie[] => [...state, ...cards])
 );

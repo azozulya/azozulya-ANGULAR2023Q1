@@ -1,8 +1,8 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { ICustomCard } from 'src/app/youtube/models/custom-card.interface';
+import { IMovie } from 'src/app/youtube/models/movie.interface';
 
 export const featureKey = 'customCards';
 
-export const selectCustomCardsState = createFeatureSelector<ICustomCard[]>(featureKey);
+export const selectCustomCardsState = createFeatureSelector<IMovie[]>(featureKey);
 
-export const selectCustomCards = createSelector(selectCustomCardsState, (state: ICustomCard[]) => state);
+export const selectCustomCards = createSelector(selectCustomCardsState, (state: IMovie[]) => state);

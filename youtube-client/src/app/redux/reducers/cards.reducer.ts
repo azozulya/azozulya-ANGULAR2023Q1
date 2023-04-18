@@ -9,5 +9,5 @@ export const cardsReducer = createReducer(
   on(CardsAction.searchCards, (state): IMovie[] => [...state]),
   on(CardsAction.cardsStatistic, (state): IMovie[] => [...state]),
   on(CardsAction.addCards, (_, { cards }): IMovie[] => [...cards]),
-  on(CardsAction.cardsError, (): IMovie[] => [])
+  on(CardsAction.searchError, (): IMovie[] => [])
 );

@@ -7,6 +7,6 @@ export const CardsAction = createActionGroup({
     'Search Cards': props<{ searchStr: string }>(),
     'Cards Statistic': props<{ ids: Array<string> }>(),
     'Add Cards': props<{ cards: IMovie[] }>(),
-    'Cards Error': emptyProps(),
+    'Search Error': emptyProps(),
   },
 });

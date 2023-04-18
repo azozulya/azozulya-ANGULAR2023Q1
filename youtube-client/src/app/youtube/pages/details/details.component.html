@@ -1,9 +1,9 @@
 <div class="container">
   <section
-    *ngIf="item"
+    *ngIf="movie; else notfound"
     class="movie"
     appColored
-    date="{{ item.snippet.publishedAt }}"
+    date="{{ movie.snippet.publishedAt }}"
   >
     <div class="movie-back">
       <button
@@ -20,25 +20,28 @@
       <div class="movie-img">
         <img
           src="{{
-            item.snippet.thumbnails.standard?.url ||
-              item.snippet.thumbnails.high?.url
+            movie.snippet.thumbnails.standard?.url ||
+              movie.snippet.thumbnails.high?.url
           }}"
           class="movie-img_img"
         />
       </div>
       <div class="movie-details">
         <div class="movie-details_header">
-          <h2 class="movie-title">{{ item.snippet.title }}</h2>
-          <p class="movie-date">{{ item.snippet.publishedAt | date }}</p>
+          <h2 class="movie-title">{{ movie.snippet.title }}</h2>
+          <p class="movie-date">{{ movie.snippet.publishedAt | date }}</p>
         </div>
-        <p class="movie-description_title" *ngIf="item.snippet.description">
+        <p class="movie-description_title" *ngIf="movie.snippet.description">
           Description:
         </p>
-        <p class="movie-description">{{ item.snippet.description }}</p>
+        <p class="movie-description">{{ movie.snippet.description }}</p>
         <app-movie-statistic
-          [statistic]="item.statistics"
+          [statistic]="movie.statistics"
         ></app-movie-statistic>
       </div>
     </div>
   </section>
+  <ng-template #notfound>
+    <p class="message">Nothing found</p>
+  </ng-template>
 </div>

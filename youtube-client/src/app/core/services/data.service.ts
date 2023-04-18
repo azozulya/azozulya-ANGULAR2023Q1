@@ -10,8 +10,10 @@ import { IGet } from '../models/get.interface';
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  getMovieById(id: string): Observable<IMovieApi[]> {
-    return this.http.get<IGet>('videos', { params: { id } }).pipe(map((data: IGet) => data.items as IMovieApi[]));
+  getMovieById(id: string): Observable<IMovieApi> {
+    return this.http
+      .get<IGet>('videos', { params: { id } })
+      .pipe(map((data: IGet) => (data.items as IMovieApi[])?.[0]));
   }
 
   getStatistics(ids: string[]): Observable<IGet> {

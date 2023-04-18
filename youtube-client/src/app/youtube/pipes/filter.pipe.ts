@@ -6,8 +6,8 @@ import { IMovie } from '../models/movie.interface';
 })
 export class FilterPipe implements PipeTransform {
   transform(list: IMovie[], filterTag: string): IMovie[] {
-    if (!list || !filterTag) return list;
-
-    return [...list].filter((item) => item.tags?.filter((tag: string | string[]) => tag.includes(filterTag)).length);
+    return !list || !filterTag
+      ? list
+      : [...list].filter((item) => item.tags?.filter((tag: string | string[]) => tag.includes(filterTag)).length);
   }
 }

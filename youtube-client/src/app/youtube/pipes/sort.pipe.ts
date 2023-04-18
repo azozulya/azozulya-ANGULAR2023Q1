@@ -8,7 +8,9 @@ import { IMovie } from '../models/movie.interface';
 })
 export class SortPipe implements PipeTransform {
   transform(list: IMovie[], sort: Sort): IMovie[] {
-    if (!sort) return list;
+    if (!sort) {
+      return list;
+    }
 
     const sortParam = ESort;
     let sortedResult: IMovie[] = [];
@@ -19,7 +21,6 @@ export class SortPipe implements PipeTransform {
         break;
       }
       case sortParam.VIEWS: {
-        console.log(list);
         sortedResult = [...list].sort((a, b) => parseInt(a.statistics.viewCount) - parseInt(b.statistics.viewCount));
         break;
       }

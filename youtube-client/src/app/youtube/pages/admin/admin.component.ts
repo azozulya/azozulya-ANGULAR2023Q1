@@ -65,7 +65,6 @@ export class AdminComponent implements OnInit {
   }
 
   onGenerateCards(): void {
-    console.log(mockCustomCards.cards);
     this.store.dispatch(CustomCardsActions.generate({ cards: mockCustomCards.cards }));
   }
 }
